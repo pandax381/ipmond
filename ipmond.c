@@ -16,7 +16,7 @@
 #define PACKAGE_VERSION "0.1" 
 
 #define DEBUG(fmt, ...) \
-    if (debug) fprintf(stderr, "DEBUG: " fmt, ##__VA_ARGS__)
+    do { if (debug) fprintf(stderr, "DEBUG: " fmt, ##__VA_ARGS__); } while (0)
 
 #define ISIFUP(x) ((x) & IFF_RUNNING)
 #define IFSTATE(x) (ISIFUP(x) ? "UP" : "DOWN")
